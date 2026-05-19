@@ -1,4 +1,7 @@
-produtos = []
+from funcoes import *
+from database import conexao
+
+#Menu principal do sistema
 
 while True:
 
@@ -6,33 +9,48 @@ while True:
 
     print("1 - Cadastrar produto")
     print("2 - Listar produtos")
-    print("3 - Sair")
+    print("3 - Buscar produto")
+    print("4 - Excluir produto")
+    print("5 - Editar produto")
+    print("6 - Sair do sistema")
 
     opcao = input("Escolha uma opção: ")
 
+
+#CADASTRAR PRODUTO
+
     if opcao == "1":
-        
+        cadastrar_produtos()
 
-        nome = input("Digite o nome do produto: ")
-        preco = float(input("Digite o preço do produto: "))
-        quantidade = int(input("Digite a quantidade do produto: "))
-
-        produto = {
-            "nome": nome,
-            "preco": preco,
-            "quantidade": quantidade
-        }
-        produtos.append(produto)# Adiciona o produto à lista de produtos
-        
-        print("Produto cadastrado com sucesso!")
-
+#LISTAR PRODUTOS
 
     elif opcao == "2":
-        print("Listando produtos")
+        listar_produtos()
+
+#BUSCAR PRODUTO
 
     elif opcao == "3":
+        buscar_produto()  
+
+#EXCLUIR PRODUTO
+
+    elif opcao == "4":
+        excluir_produto()
+
+ #EDITAR PRODUTO
+    elif opcao == "5":
+
+        editar_produto()
+
+#SAIR DO SISTEMA
+
+    elif opcao == "6":
+
         print("Saindo do sistema")
         break
-
+        
     else:
+
         print("Opção inválida")
+
+conexao.close()
